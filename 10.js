@@ -38,39 +38,10 @@ var isMatch = function (s, p) {
         if (ch == '*') continue;
         if (nextCh && nextCh === '*') {
             // i++;
-            if (ch == '.') {
-                // ??? match remaining pattern here
-
-                // match inp[0] char until pattern changes
-                // => have to match any char... last indexOf version
-                // ha van tovabbi pattern, mint az aktualis, az igaz-e
-                // return isMatch(s, p minues .*);
-                var remainingP = p.slice(i + 2, p.length)
-                if (remainingP.length > 0) {
-                    return isMatch(s, remainingP);
-                }
-                var rmCh = '';
-                // do {
-                //     rmCh = inp.shift();
-                // } while (rmCh == inp[0]);
-
-                // var fCount = inp.lastIndexOf(ch);
-                // if (fCount > 0) inp.splice(0, fCount + 1);
-
-                // return true;
-            } else {
-                // need to match until pattern end
-                // or zero ???
-                let rmCh = ''
-                // input i does not match
-                // if (inp[0] != ch) return false;
-
-                // remove until pattern of ch end instead of lastIndex
-                // is matching => remove until last char of the ch
-                while (ch == inp[0]) {
-                    var elm = inp.shift();
-                }
-            }
+            var remainingP = p.slice(i + 2, p.length)
+            if (remainingP.length > 0) {
+                return isMatch(s, remainingP);
+            } else return true;
         } else if (ch == '.') {
             inp.shift();
         } else {
@@ -122,6 +93,11 @@ var isMatch = function (s, p) {
     {
         s: 'ab',
         p: '.*',
+        e: true,
+    },
+    {
+        s: 'aaa',
+        p: 'a*a',
         e: true,
     },
 ].forEach(a => {
