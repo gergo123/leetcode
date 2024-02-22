@@ -17,8 +17,6 @@ var findJudge = function (n, trust) {
     // {in:, out:}
     var arr = {};
 
-    // 
-    var m = new Map();
     for (let [trustee, trusted] of trust) {
         var item = arr[trustee];
         var item2 = arr[trusted];
