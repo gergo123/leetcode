@@ -20,18 +20,61 @@ function TreeNode(val, left, right) {
  * @return {string}
  */
 var getDirections = function (root, startValue, destValue) {
-  var queue = [];
-  queue.push(root);
+  let childToParent = new Map();
 
-  let item = null;
-  while (item = queue.pop()) {
+  // a megadott cel erteket elerni legrovidebb uton, lepes szamot kell szamolni
+  let distanceToTarget = (node, target, curr) => {
+    if (node.val === target) return 1;
 
-    item.left && queue.push(item.left);
-    item.right && queue.push(item.right);
+    // let lAmount = distanceToTarget(node.left, target, curr + 1);
+    // let rAmount = distanceToTarget(node.right, target, curr + 1);
+
+    // if (lAmount > lAmount) return rAmount + curr;
+    // else return lAmount + curr;
+
+    return curr++;
   }
+
+  // brute force modellezni, a fel jobra balra irayokat? Mind rekurziv fut, a legrovidebb lepes szam fele megyunk
+  // lepes szamot hogyan szomlunk bejaraskor? Hogyan tartjuk szamon?
+  // true false, benne van-e az agban a keresett ertek
+
+  // rekurziv callba kell egy +1 ertek
+  // depth? azt kell vissza adni
+  // meg mindig nincs meg a rekurzivrol hogy kell gondolkodni
+  // mintha ott lenne az ertek a valtozoban
+
+  // arra van-e a keresett, es hogy left vagy right depth a kissebb
+  // rekurziv a hianyzo
+
+  // keresunk valamit, addig megy a depth, mikor megvan visszakuldjuk
+
+  return distanceToTarget(root, destValue, 0);
+  // let queue = [];
+  // queue.push(root);
+  // let item = null;
+  // while (item = queue.pop()) {
+  //   item.left && queue.push(item.left);
+  //   item.right && queue.push(item.right);
+  // }
 };
 
 console.log(getDirections(
   new TreeNode(5, new TreeNode(1, new TreeNode(3, null, null)), new TreeNode(2, new TreeNode(6, null, null), new TreeNode(4, null, null))),
   3, 6
 ));
+
+
+const reverseString = (str, length) => {
+  // base case
+  // recursive
+  var recursiveResult = "cb"; //reverseString(str);
+  return str[length - 1]
+  //length -1 => 0 elso esetben
+  // 1
+  // 2 + maradek
+  // valami alom mentes megoldas helyett egy bit alapu kellene, memoria es ra kotott tranzisztor
+}
+
+// recursive call testing
+console.log(reverseString("abc", 3));
