@@ -65,16 +65,60 @@ console.log(getDirections(
 ));
 
 
-const reverseString = (str, length) => {
-  // base case
-  // recursive
-  var recursiveResult = "cb"; //reverseString(str);
-  return str[length - 1]
-  //length -1 => 0 elso esetben
-  // 1
-  // 2 + maradek
-  // valami alom mentes megoldas helyett egy bit alapu kellene, memoria es ra kotott tranzisztor
+// base case
+// recursive
+// var recursiveResult = "cb"; //reverseString(str);
+// return str[length - 1]
+//length -1 => 0 elso esetben
+// 1
+// 2 + maradek
+// valami alom mentes megoldas helyett egy bit alapu kellene, memoria es ra kotott tranzisztor
+
+const reverseString = (s) => {
+  var len = s.length;
+  const wrap = (pad) => {
+    var lIndex = pad;
+    var rIndex = len - pad - 1;
+
+    // base case
+    if (lIndex >= rIndex) return;
+
+    let cpy = s[lIndex];
+    s[lIndex] = s[rIndex];
+    s[rIndex] = cpy;
+
+    // recursive
+    wrap(pad + 1);
+  }
+  wrap(0);
 }
 
 // recursive call testing
-console.log(reverseString("abc", 3));
+// let inp = "Hello".split('');
+// reverseString(inp);
+// console.log(inp);
+
+
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+function ListNode(val, next) {
+  this.val = (val === undefined ? 0 : val)
+  this.next = (next === undefined ? null : next)
+}
+var swapPairs = function (head) {
+  if (head == null) return null;
+  if (head.next == null) return head;
+
+  let swappedPairs = swapPairs(head.next.next);
+  var cpy = head.next;
+  head.next = swappedPairs;
+  cpy.next = head;
+
+  return cpy;
+};
+
+console.log(swapPairs(new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4))))));
+
+// mi lett volna jo megint, rajzolni
