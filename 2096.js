@@ -78,3 +78,16 @@ const reverseString = (str, length) => {
 
 // recursive call testing
 console.log(reverseString("abc", 3));
+
+// megirni csak ketto lepesre, majd ott betenni egy recursiv loop-t
+// ja egy loop iteracio, goto gyakorlatilag
+// mi a fuggveny, azt kell erteni =>
+// a fuggveny pedig egy goto, szebb formaban, sub routin
+// tr es memoria vilagban ez hogy is kotheto ide?
+// ismetlodo memoria reszlethez ter vissza a tranzisztor
+// ja fuggveny hivas, csak tobbszor, es vegtelen hivasnak tunik
+// dehat a parameterek fuggvenye, csak folyamataban derul ki a hivas szam
+// recursive problema => tobb fuggveny hivas, tobbszor ugyanaz a fuggveny, megint pszichologia fejlodes szabott hatart???
+// kepes szetvalasztani a fantaziat a valosagtol
+// csak tobbszor lefut ugyanaz a fgv, mas parameterekkel
+// divide
