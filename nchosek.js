@@ -9,7 +9,7 @@ const nChoseK = (set, nSubSet) => {
         const rdItem = set[k];
         res.get()
       }
-      let resItem = res.get(`${}`)
+      let resItem = res.get(``)
     }
   }
 };
